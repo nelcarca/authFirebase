@@ -19,6 +19,6 @@ const firebaseConfig = {
  const auth = firebase.auth(); //acceder a la informacion del usuario
 
  export {
-    db,
+    bd,
     auth
  }
