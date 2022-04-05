@@ -39,6 +39,12 @@ export default createStore({
          console.log(err);
          commit('setError', err)
        })
+    },
+    cerrarSesion({commit}){
+      auth.signOut()
+      .then(()=> {
+        router.push('/login')
+      })
     }
   },
   modules: {

@@ -38,8 +38,8 @@
               v-model="password2"
             />
           </div>
-            // si es 'false' se activa y 'true' se desactiva
-          <button type="submit" class="btn btn-primary" :disabled="desactivar">Registrar usuario</button>
+            <!-- // si es 'false' se activa y 'true' se desactiva -->
+          <button type="submit" class="btn btn-primary" :disabled="!desactivar">Registrar usuario</button>
         </form>
         <!-- <p>{{this.password == this.password2}}</p> -->
         <!-- <p>{{this.password.trim() === ''}}</p> -->
@@ -60,12 +60,13 @@ export default {
       }
    },
    methods: {
-      ...mapActions(['crearUsuario'])
+      ...mapActions(['crearUsuario']),
+      
    },
    computed: {
       ...mapState(['error']),
       desactivar(){
-         return this.pasword === this.password2 && this.password.trim() === '';
+         return this.password === this.password2 && this.password.trim() !== '' && this.password.length > 5;
          //true && true = true
       }
    }
